@@ -1,3 +1,8 @@
+html {
+    text-align: center;
+    font-family: monospace;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -9,12 +14,14 @@ body {
 #calc {
     border: 10px solid rgb(46, 46, 46);
     border-radius: 4px;
-    height: 520px;
+    height: 526px;
     width: 400px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     background-color: black;
+    transform-origin: center;
+    transform: scale(var(--scale-factor, 1));
 }
 
 #display {
@@ -27,7 +34,6 @@ body {
     justify-content: space-around;
     align-items: flex-end;
     font-size: 5.5em;
-    font-family: monospace;
     font-weight: initial;
     text-shadow: 1.3px 1.3px #383838;
 }
@@ -35,58 +41,62 @@ body {
 #functions {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 button {
-    height: 81px;
-    width: 98px;
+    height: 80px;
+    width: 96px;
     padding: 6px;
-    margin: 1px;
+    margin: 2px;
     border-radius: 5%;
+    border: none;
     font-weight: initial;
     font-size: 2em;
-    font-family: monospace;
     color: black;
 }
 
-#operands.zero {
-    width: 198px;
+.operands.zero {
+    width: 196px;
 }
 
-#operators {
+.operators {
     background-color: #FF8F1F;
 }
 
-#operators:active {
+.operators:active {
     background-color: #ffc183;
 }
 
-#operators:focus {
+.operators.divide:focus,
+.operators.multiply:focus,
+.operators.add:focus,
+.operators.subtract:focus {
     background-color: #ffc183;
 }
 
-#operators.clear,
-#operators.backspace,
-#operators.modulus {
+.operators.clear,
+.operators.backspace,
+.operators.modulus {
     background-color: dodgerblue;
 }
 
-#operators.clear:active,
-#operators.backspace:active,
-#operators.modulus:active {
+.operators.clear:active,
+.operators.backspace:active,
+.operators.modulus:active {
     background-color: rgb(123, 189, 255);
 }
 
-#operators.modulus:focus {
-    background-color: rgb(123, 189, 255);
-}
-
-#operands {
+.operands {
     background-color: #217C7E;
 }
 
-#operands:active {
+.operands:active {
     background-color: #33b9bb;
 }
 
+@media (max-width: 420px) {
+    #calc {
+        --scale-factor: calc(100vw / 420);
+    }
+}
