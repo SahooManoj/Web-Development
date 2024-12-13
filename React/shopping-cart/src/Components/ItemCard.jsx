@@ -10,7 +10,9 @@ export default function ItemCard({ src, title, name, description, price, cartIte
   }
   function incrementItem() {
     setItemCount(itemCount + 1);
-    setCartItemCount(cartItemCount + 1);
+  }
+  function setCartTotalCount() {
+    setCartItemCount(cartItemCount + itemCount);
   }
   return (
     <div className="item">
@@ -23,7 +25,7 @@ export default function ItemCard({ src, title, name, description, price, cartIte
         <p>{itemCount}</p>
         <button type="button" onClick={incrementItem}>+</button>
       </div>
-      <button type="button">Add to Cart</button>
+      <button type="button" onClick={setCartTotalCount}>Add to Cart</button>
     </div>
   );
 };
