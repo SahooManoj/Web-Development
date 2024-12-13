@@ -1,0 +1,19 @@
+ul {
+    display: flex;
+    gap: 30%;
+    padding: 3rem;
+}
+li {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+.cart {
+    display: flex;
+    gap: 10%;
+}
+.child {
+    padding: 3rem;
+    text-align: center;
+}
